@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creative Minds Studio - Catalog</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Font Awesome CDN -->
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            padding: 20px;
+            max-width: 900px;
+            margin: auto;
+        }
+        h1, h2, h3 {
+            color: #333;
+            text-align: center;
+        }
+        p {
+            color: #666;
+            text-align: center;
+        }
+
+        /* Grid Layout */
+        .features, .product-details {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        /* Feature and Product Items */
+        .feature-item, .product-item {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        .feature-item h3, .product-info h3 {
+            color: #333;
+            margin: 0 0 10px;
+        }
+        .feature-item p, .product-info p {
+            color: #666;
+            margin: 5px 0;
+        }
+
+        /* Product Images */
+        .product-item {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        .product-item img {
+            width: 150px;
+            height: 100px;
+            border-radius: 5px;
+            object-fit: cover;
+        }
+        .product-info {
+            text-align: left;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+        footer p, footer a {
+            color: #fff;
+            margin: 5px 0;
+            text-decoration: none;
+        }
+        footer .social-links {
+            margin-top: 10px;
+        }
+        footer .social-links a {
+            margin: 0 15px;
+            color: #fff;
+            font-size: 24px;
+        }
+        footer .social-links a:hover {
+            color: #bbb;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Creative Minds Studio</h1>
+        <p>Designing user experiences that matter.</p>
+
+        <!-- Features Section -->
+        <div class="features">
+            <div class="feature-item">
+                <h3>Feature 1: UX/UI Design Expertise</h3>
+                <p>Crafts intuitive and beautiful interfaces tailored for user engagement.</p>
+            </div>
+            <div class="feature-item">
+                <h3>Feature 2: Brand Identity Development</h3>
+                <p>Helps companies establish a unique visual identity to stand out in the market.</p>
+            </div>
+            <div class="feature-item">
+                <h3>Feature 3: Responsive Design</h3>
+                <p>Ensures seamless experience across devices from mobile to desktop.</p>
+            </div>
+            <div class="feature-item">
+                <h3>Feature 4: Animation and Visual Effects</h3>
+                <p>Creates captivating animations and effects for dynamic user interaction.</p>
+            </div>
+        </div>
+
+        <!-- Product Details Section -->
+        <div class="product-details">
+            <div class="product-item">
+                <img src="brand.jpeg" alt="Branding Package">
+                <div class="product-info">
+                    <h3>Complete Branding Package</h3>
+                    <p>Includes logo design, typography, color palette, and brand guidelines.</p>
+                    <p><strong>Price:</strong> $3,000</p>
+                </div>
+            </div>
+            
+            <div class="product-item">
+                <img src="kit.jpeg" alt="UI Design Kit">
+                <div class="product-info">
+                    <h3>Custom UI Design Kit</h3>
+                    <p>Pre-designed UI components to speed up your web or app development process.</p>
+                    <p><strong>Price:</strong> $1,500</p>
+                </div>
+            </div>
+
+            <div class="product-item">
+                <img src="responsive.jpeg" alt="Responsive Website">
+                <div class="product-info">
+                    <h3>Responsive Website Design</h3>
+                    <p>Responsive website layouts optimized for all screen sizes.</p>
+                    <p><strong>Price:</strong> $2,500</p>
+                </div>
+            </div>
+
+            <div class="product-item">
+                <img src="interactive.jpeg" alt="Animation Package">
+                <div class="product-info">
+                    <h3>Interactive Animation Package</h3>
+                    <p>Engaging animations for improved user engagement and experience.</p>
+                    <p><strong>Price:</strong> $2,000</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Creative Minds Studio</p>
+        <p>Customer Support: support@creativeminds.com | +1-800-555-1234</p>
+        <div class="social-links">
+            <a href="https://facebook.com" target="_blank" class="fab fa-facebook-f"></a>
+            <a href="https://twitter.com" target="_blank" class="fab fa-twitter"></a>
+            <a href="https://instagram.com" target="_blank" class="fab fa-instagram"></a>
+            <a href="https://linkedin.com" target="_blank" class="fab fa-linkedin-in"></a>
+        </div>
+        <p>Privacy Policy | Terms of Service</p>
+    </footer>
+
+</body>
+</html>

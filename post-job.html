@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Post a Job - Job Board</title>
+  <style>
+    /* General Styles */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Navbar Styles */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #333;
+      padding: 10px 20px;
+    }
+
+    .navbar .logo a {
+      color: #fff;
+      font-size: 24px;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .navbar .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    .navbar .nav-links li a {
+      color: #fff;
+      text-decoration: none;
+      padding: 8px 12px;
+      transition: background 0.3s;
+    }
+
+    .navbar .nav-links li a:hover {
+      background-color: #555;
+      border-radius: 5px;
+    }
+
+    .navbar .nav-buttons a {
+      color: #fff;
+      text-decoration: none;
+      padding: 8px 16px;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+
+    .navbar .btn-login {
+      background-color: #007bff;
+    }
+
+    .navbar .btn-login:hover {
+      background-color: #0056b3;
+    }
+
+    .navbar .btn-register {
+      background-color: #28a745;
+    }
+
+    .navbar .btn-register:hover {
+      background-color: #218838;
+    }
+
+    /* Page Section */
+    .container {
+      padding: 20px;
+      text-align: center;
+    }
+
+    .container h1 {
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    .company-jobs {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .job-card {
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .job-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .job-card h3 {
+      font-size: 1.5rem;
+      margin: 15px 0;
+      color: #333;
+    }
+
+    .job-card p {
+      color: #666;
+      margin-bottom: 10px;
+    }
+
+    .job-card a {
+      color: #007bff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .job-card a:hover {
+      text-decoration: underline;
+    }
+
+    .company-logo {
+      width: 100px;
+      height: auto;
+      margin-bottom: 20px;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .company-jobs {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .company-jobs {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Footer Styles */
+    footer {
+      background-color: #333;
+      color: #fff;
+      padding: 40px 20px;
+      margin-top: 40px;
+    }
+
+    .footer-container {
+      display: flex;
+      justify-content: space-between;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .footer-section h4 {
+      font-size: 1.2rem;
+      margin-bottom: 15px;
+    }
+
+    .footer-section p,
+    .footer-section ul {
+      font-size: 0.9rem;
+      color: #ccc;
+    }
+
+    .footer-section ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer-section ul li {
+      margin: 8px 0;
+    }
+
+    .footer-section ul li a {
+      color: #ccc;
+      text-decoration: none;
+    }
+
+    .footer-section ul li a:hover {
+      text-decoration: underline;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #ccc;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo"><a href="index.html">JobBoard</a></div>
+    <ul class="nav-links">
+      <li><a href="home.html">Home</a></li>
+      <li><a href="jobs.html">Jobs</a></li>
+      <li><a href="post-job.html">Post a Job</a></li>
+      <li><a href="profile.html">Profile</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+    <div class="nav-buttons">
+      <a href="login.html" class="btn-login">Login</a>
+      <a href="register.html" class="btn-register">Register</a>
+    </div>
+  </nav>
+
+  <!-- Post a Job Section -->
+  <div class="container">
+    <h1>Post a Job</h1>
+    <p>Choose a company and view the available job openings. You can apply directly for the jobs you're interested in!</p>
+
+    <div class="company-jobs">
+      <!-- Company 1 Jobs -->
+      <div class="job-card">
+        <img src="innovation.jpeg" alt="Tech Innovations Logo" class="company-logo">
+        <h3>Tech Innovations</h3>
+        <p><strong>Vacancies:</strong> 3</p>
+        <ul>
+          <li><a href="#">Software Engineer</a></li>
+          <li><a href="#">UI/UX Designer</a></li>
+          <li><a href="#">Data Scientist</a></li>
+        </ul>
+      </div>
+
+      <!-- Company 2 Jobs -->
+      <div class="job-card">
+        <img src="creative.jpeg" alt="Creative Minds Studio Logo" class="company-logo">
+        <h3>Creative Minds Studio</h3>
+        <p><strong>Vacancies:</strong> 3</p>
+        <ul>
+          <li><a href="#">Graphic Designer</a></li>
+          <li><a href="#">Video Editor</a></li>
+          <li><a href="#">Content Creator</a></li>
+        </ul>
+      </div>
+
+      <!-- Company 3 Jobs -->
+      <div class="job-card">
+        <img src="green.jpeg" alt="Green Energy Solutions Logo" class="company-logo">
+        <h3>Green Energy Solutions</h3>
+        <p><strong>Vacancies:</strong> 3</p>
+        <ul>
+          <li><a href="#">Environmental Engineer</a></li>
+          <li><a href="#">Sustainability Manager</a></li>
+          <li><a href="#">Project Manager</a></li>
+        </ul>
+      </div>
+
+      <!-- Company 4 Jobs -->
+      <div class="job-card">
+        <img src="web.jpeg" alt="Web Solutions Inc. Logo" class="company-logo">
+        <h3>Web Solutions Inc.</h3>
+        <p><strong>Vacancies:</strong> 3</p>
+        <ul>
+          <li><a href="#">Front-end Developer</a></li>
+          <li><a href="#">Backend Developer</a></li>
+          <li><a href="#">Web Designer</a></li>
+        </ul>
+      </div>
+
+      <!-- Company 5 Jobs -->
+      <div class="job-card">
+        <img src="fin.png" alt="FinTech Advisors Logo" class="company-logo">
+        <h3>FinTech Advisors</h3>
+        <p><strong>Vacancies:</strong> 3</p>
+        <ul>
+          <li><a href="#">Financial Analyst</a></li>
+          <li><a href="#">Risk Manager</a></li>
+          <li><a href="#">Investment Advisor</a></li>
+        </ul>
+      </div>
+
+      <!-- Company 6 Jobs -->
+      <div class="job-card">
+        <img src="health.jpeg" alt="HealthCare Systems Logo" class="company-logo">
+        <h3>HealthCare Systems</h3>
+        <p><strong>Vacancies:</strong> 3</p>
+        <ul>
+          <li><a href="#">Medical Device Specialist</a></li>
+          <li><a href="#">Clinical Researcher</a></li>
+          <li><a href="#">Healthcare IT Support</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer Section -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-section">
+        <h4>Customer Care</h4>
+        <p>If you have any questions or concerns, feel free to reach out to our customer care team.</p>
+        <p><strong>Phone:</strong> +1 800 123 4567</p>
+        <p><strong>Email:</strong> support@jobboard.com</p>
+      </div>
+      <div class="footer-section">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="home.html">Home</a></li>
+          <li><a href="jobs.html">Jobs</a></li>
+          <li><a href="post-job.html">Post a Job</a></li>
+          <li><a href="profile.html">Profile</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Follow Us</h4>
+        <ul>
+          <li><a href="https://www.facebook.com/">Facebook</a></li>
+          <li><a href="https://twitter.com/?lang=en">Twitter</a></li>
+          <li><a href="www.linkedin.com">LinkedIn</a></li>
+          <li><a href="www.instagram.com">Instagram</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 JobBoard. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

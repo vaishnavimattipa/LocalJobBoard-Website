@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jobs - Job Board</title>
+  <style>
+    /* General Styles */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Navbar Styles */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #333;
+      padding: 10px 20px;
+    }
+
+    .navbar .logo a {
+      color: #fff;
+      font-size: 24px;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .navbar .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    .navbar .nav-links li a {
+      color: #fff;
+      text-decoration: none;
+      padding: 8px 12px;
+      transition: background 0.3s;
+    }
+
+    .navbar .nav-links li a:hover {
+      background-color: #555;
+      border-radius: 5px;
+    }
+
+    .navbar .nav-buttons a {
+      color: #fff;
+      text-decoration: none;
+      padding: 8px 16px;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+
+    .navbar .btn-login {
+      background-color: #007bff;
+    }
+
+    .navbar .btn-login:hover {
+      background-color: #0056b3;
+    }
+
+    .navbar .btn-register {
+      background-color: #28a745;
+    }
+
+    .navbar .btn-register:hover {
+      background-color: #218838;
+    }
+
+    /* Main Content */
+    .container {
+      padding: 20px;
+    }
+
+    .container h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    .job-listing {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .job-item {
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      text-align: center;
+    }
+
+    .job-item img {
+      width: 400px;
+      height: 200px;
+      border-radius: 10px;
+    }
+
+    .job-item h3 {
+      font-size: 1.5rem;
+      color: #333;
+    }
+
+    .job-item p {
+      color: #666;
+      margin-bottom: 10px;
+    }
+
+    .job-item a {
+      text-decoration: none;
+      color: #fff;
+      background-color: #007bff;
+      padding: 10px 20px;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+
+    .job-item a:hover {
+      background-color: #0056b3;
+    }
+
+    /* Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.4);
+      padding-top: 60px;
+    }
+
+    .modal-content {
+      background-color: #fff;
+      margin: 5% auto;
+      padding: 20px;
+      border-radius: 10px;
+      width: 80%;
+      max-width: 500px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+      position: relative;
+    }
+
+    .close-btn {
+      color: #aaa;
+      font-size: 28px;
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      cursor: pointer;
+    }
+
+    .close-btn:hover {
+      color: black;
+    }
+
+    #jobApplicationForm input, #jobApplicationForm textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    #jobApplicationForm button {
+      background-color: #007bff;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    #jobApplicationForm button:hover {
+      background-color: #0056b3;
+    }
+
+    /* Footer Styles */
+    footer {
+      background-color: #333;
+      color: #fff;
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    footer .footer-links {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-bottom: 10px;
+    }
+
+    footer .footer-links li a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1rem;
+    }
+
+    footer .footer-links li a:hover {
+      text-decoration: underline;
+    }
+
+    footer .footer-contact {
+      margin-top: 10px;
+    }
+
+    footer .footer-contact p {
+      margin: 5px 0;
+      font-size: 1rem;
+    }
+
+    footer .footer-contact a {
+      color: #28a745;
+      text-decoration: none;
+    }
+
+    footer .footer-contact a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo"><a href="index.html">JobBoard</a></div>
+    <ul class="nav-links">
+      <li><a href="home.html">Home</a></li>
+      <li><a href="jobs.html">Jobs</a></li>
+      <li><a href="post-job.html">Post a Job</a></li>
+      <li><a href="profile.html">Profile</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+    <div class="nav-buttons">
+      <a href="login.html" class="btn-login">Login</a>
+      <a href="register.html" class="btn-register">Register</a>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="container">
+    <h1>Job Listings</h1>
+    <p>Find the job that suits your skills and preferences.</p>
+
+    <div class="job-listing">
+      <!-- Job Listings -->
+      <div class="job-item">
+        <img src="software.jpeg" alt="Software Engineer">
+        <h3>Software Engineer</h3>
+        <p>Build cutting-edge applications as part of our team.</p>
+        <a href="javascript:void(0);" class="apply-now">Apply Now</a>
+      </div>
+      <div class="job-item">
+        <img src="assisstant.jpeg" alt="Marketing Assistant">
+        <h3>Marketing Assistant</h3>
+        <p>Assist in developing marketing strategies and content creation.</p>
+        <a href="javascript:void(0);" class="apply-now">Apply Now</a>
+      </div>
+      <div class="job-item">
+        <img src="intern.jpeg" alt="Product Management Intern">
+        <h3>Product Management Intern</h3>
+        <p>Gain hands-on experience in product management with our team.</p>
+        <a href="javascript:void(0);" class="apply-now">Apply Now</a>
+      </div>
+      <div class="job-item">
+        <img src="analyst.jpeg" alt="Data Analyst">
+        <h3>Data Analyst</h3>
+        <p>Analyze data trends to help businesses make informed decisions.</p>
+        <a href="javascript:void(0);" class="apply-now">Apply Now</a>
+      </div>
+      <div class="job-item">
+        <img src="graphic.jpeg" alt="Graphic Designer">
+        <h3>Graphic Designer</h3>
+        <p>Create visually stunning designs for digital and print media.</p>
+        <a href="javascript:void(0);" class="apply-now">Apply Now</a>
+      </div>
+      <div class="job-item">
+        <img src="developer.jpeg" alt="Software Developer">
+        <h3>Software Developer</h3>
+        <p>Develop high-quality software solutions for various industries.</p>
+        <a href="javascript:void(0);" class="apply-now">Apply Now</a>
+      </div>
+      <div class="job-item">
+        <img src="content.jpeg" alt="Content Writer">
+        <h3>Content Writer</h3>
+        <p>Create engaging content for websites, blogs, and social media.</p>
+        <a href="javascript:void(0);" class="apply-now">Apply Now</a>
+      </div>
+      <div class="job-item">
+        <img src="hr.jpeg" alt="HR Manager">
+        <h3>HR Manager</h3>
+        <p>Lead recruitment and employee relations within our company.</p>
+        <a href="javascript:void(0);" class="apply-now">Apply Now</a>
+      </div>
+      <div class="job-item">
+        <img src="network.jpeg" alt="Network Engineer">
+        <h3>Network Engineer</h3>
+        <p>Design and maintain our company's network infrastructure.</p>
+        <a href="javascript:void(0);" class="apply-now">Apply Now</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Apply Now Modal -->
+  <div id="applyModal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal()">&times;</span>
+      <h2>Job Application Form</h2>
+      <form id="jobApplicationForm">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="coverLetter" placeholder="Cover Letter" rows="4" required></textarea>
+        <button type="submit">Submit Application</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <ul class="footer-links">
+      <li><a href="#">About Us</a></li>
+      <li><a href="#">Privacy Policy</a></li>
+      <li><a href="#">Terms of Service</a></li>
+      <li><a href="#">Careers</a></li>
+    </ul>
+    <div class="footer-contact">
+      <p>Need Help? <a href="mailto:support@jobboard.com">Contact Customer Support</a></p>
+      <p>Email: support@jobboard.com</p>
+      <p>Phone: +1 (800) 123-4567</p>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.apply-now').forEach(button => {
+      button.addEventListener('click', openModal);
+    });
+
+    function openModal() {
+      document.getElementById("applyModal").style.display = "block";
+    }
+
+    function closeModal() {
+      document.getElementById("applyModal").style.display = "none";
+    }
+
+    window.onclick = function(event) {
+      const modal = document.getElementById("applyModal");
+      if (event.target === modal) {
+        closeModal();
+      }
+    }
+
+    document.getElementById("jobApplicationForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+      alert("Application submitted successfully!");
+      closeModal();
+    });
+  </script>
+
+</body>
+</html>

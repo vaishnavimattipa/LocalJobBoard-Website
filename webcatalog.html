@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Solutions Pro - Catalog</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            padding: 20px;
+            max-width: 900px;
+            margin: auto;
+        }
+        h1, h2, h3 {
+            color: #333;
+            text-align: center;
+        }
+        p {
+            color: #666;
+            text-align: center;
+        }
+
+        /* Services Section */
+        .services {
+            margin-top: 30px;
+            text-align: center;
+        }
+        .service-item {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        .service-item img {
+            width: 200px;
+            height: 150px;
+            border-radius: 5px;
+            object-fit: cover;
+        }
+        .service-info {
+            text-align: left;
+        }
+        .service-info h3 {
+            margin-top: 0;
+            color: #333;
+        }
+        .service-info p {
+            margin: 5px 0;
+            color: #666;
+        }
+
+        /* Customer Reviews Section */
+        .reviews {
+            margin-top: 50px;
+        }
+        .review-item {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+        }
+        .review-photo {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        .review-content {
+            max-width: 700px;
+        }
+        .star-rating {
+            color: #FFD700;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+        .review-content h3 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .review-content p {
+            color: #666;
+            font-style: italic;
+        }
+        .reviewer {
+            font-weight: bold;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+        footer p {
+            margin: 5px 0;
+        }
+        footer a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Web Solutions Pro</h1>
+        <p>Empowering your business with cutting-edge web technologies.</p>
+
+        <!-- Services Section -->
+        <div class="services">
+            <h2>Our Services</h2>
+            
+            <div class="service-item">
+                <img src="web-development.jpeg" alt="Web Development">
+                <div class="service-info">
+                    <h3>Custom Web Development</h3>
+                    <p>Building responsive and scalable websites tailored to your business needs, ensuring a seamless user experience across all devices.</p>
+                    <p><strong>Price:</strong> Starting at $3,000</p>
+                </div>
+            </div>
+
+            <div class="service-item">
+                <img src="seo-services.jpeg" alt="SEO Services">
+                <div class="service-info">
+                    <h3>Search Engine Optimization (SEO)</h3>
+                    <p>Enhancing your website's visibility on search engines through comprehensive SEO strategies, driving more organic traffic to your site.</p>
+                    <p><strong>Price:</strong> Starting at $1,500</p>
+                </div>
+            </div>
+
+            <div class="service-item">
+                <img src="ecommerce.jpeg" alt="E-commerce Solutions">
+                <div class="service-info">
+                    <h3>E-commerce Solutions</h3>
+                    <p>Developing robust e-commerce platforms with secure payment gateways, inventory management, and user-friendly interfaces to boost your online sales.</p>
+                    <p><strong>Price:</strong> Starting at $4,500</p>
+                </div>
+            </div>
+            
+            <div class="service-item">
+                <img src="digital-marketing.jpeg" alt="Digital Marketing">
+                <div class="service-info">
+                    <h3>Digital Marketing</h3>
+                    <p>Creating effective digital marketing campaigns that increase brand awareness, engage your target audience, and drive conversions.</p>
+                    <p><strong>Price:</strong> Starting at $2,000</p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Customer Reviews Section -->
+        <div class="reviews">
+            <h2>Customer Reviews & Testimonials</h2>
+            
+            <div class="review-item">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJtdfZp9HW2q0pHWpYjyQf9Zn1IEZQGG6uVQ&s" alt="Sarah's Photo" class="review-photo">
+                <div class="review-content">
+                    <div class="star-rating">★★★★★</div>
+                    <h3>"Transformative Web Development!"</h3>
+                    <p>"Web Solutions Pro revamped our outdated website into a modern, user-friendly platform. The team was professional, responsive, and delivered exactly what we needed. Our online presence has never been better!"</p>
+                    <p class="reviewer">- Sarah T., Marketing Manager</p>
+                </div>
+            </div>
+
+            <div class="review-item">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQah9YEpdUANxcFpZf18liZX0U0azd945rmVA&s" alt="Mark's Photo" class="review-photo">
+                <div class="review-content">
+                    <div class="star-rating">★★★★☆</div>
+                    <h3>"Effective SEO Strategies"</h3>
+                    <p>"The SEO services provided by Web Solutions Pro significantly improved our search engine rankings. We've seen a noticeable increase in organic traffic and customer inquiries. Highly recommend their expertise."</p>
+                    <p class="reviewer">- Mark D., Business Owner</p>
+                </div>
+            </div>
+
+            <div class="review-item">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAzAdA5XGldD5ZjjtFPYrt6ZbD9loEnFuiVg&s" alt="John's Photo" class="review-photo">
+                <div class="review-content">
+                    <div class="star-rating">★★★★★</div>
+                    <h3>"Outstanding E-commerce Solutions"</h3>
+                    <p>"Web Solutions Pro developed our e-commerce website with all the necessary features and a sleek design. The platform is easy to manage, and our sales have increased since the launch. Exceptional service and support."</p>
+                    <p class="reviewer">- John M., Retailer</p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Web Solutions Pro</p>
+        <p>Customer Support: support@websolutionspro.com | +1-800-555-1234</p>
+        <p>
+            Follow us on social media: 
+            <a href="https://www.facebook.com" target="_blank">Facebook</a> | 
+            <a href="https://www.twitter.com" target="_blank">Twitter</a> | 
+            <a href="https://www.linkedin.com" target="_blank">LinkedIn</a>
+        </p>
+    </footer>
+
+</body>
+</html>

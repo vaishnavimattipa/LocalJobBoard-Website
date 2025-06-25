@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Job Board</title>
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Base styles */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* Navbar styles */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #333;
+      padding: 10px 20px;
+      width: 100%;
+    }
+
+    .logo a {
+      font-size: 24px;
+      font-weight: bold;
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-links li a {
+      color: #fff;
+      text-decoration: none;
+      padding: 8px 12px;
+      transition: background 0.3s;
+    }
+
+    .nav-links li a:hover {
+      background-color: #555;
+      border-radius: 5px;
+    }
+
+    .nav-buttons a {
+      color: #fff;
+      text-decoration: none;
+      padding: 8px 16px;
+      margin-left: 10px;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+
+    .btn-login {
+      background-color: #007bff;
+    }
+
+    .btn-login:hover {
+      background-color: #0056b3;
+    }
+
+    .btn-register {
+      background-color: #28a745;
+    }
+
+    .btn-register:hover {
+      background-color: #218838;
+    }
+
+    /* Dropdown Menu Styles */
+    .nav-links .dropdown {
+      position: relative;
+    }
+
+    .nav-links .dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: #333;
+      padding: 10px 0;
+      list-style: none;
+      border-radius: 5px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-links .dropdown-menu li {
+      width: 150px;
+    }
+
+    .nav-links .dropdown-menu li a {
+      color: #fff;
+      padding: 10px 20px;
+      display: block;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+
+    .nav-links .dropdown-menu li a:hover {
+      background-color: #555;
+    }
+
+    .nav-links .dropdown:hover .dropdown-menu {
+      display: block;
+    }
+
+    /* Responsive menu */
+    @media (max-width: 768px) {
+      .nav-links {
+        flex-direction: column;
+        display: none;
+        background-color: #333;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 100%;
+      }
+
+      .navbar {
+        flex-wrap: wrap;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .menu-toggle {
+        font-size: 24px;
+        color: #fff;
+        background: none;
+        border: none;
+        cursor: pointer;
+      }
+    }
+
+    /* Container styles */
+    .container {
+      background-color: #fff;
+      max-width: 900px;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 20px;
+    }
+
+    .content {
+      max-width: 50%;
+    }
+
+    .content h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #3b5998;
+      margin: 0;
+    }
+
+    .content h1 span {
+      color: #f8b400;
+    }
+
+    .content p {
+      color: #666;
+      margin: 15px 0;
+      line-height: 1.6;
+    }
+
+    .content button {
+      background-color: #f8b400;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 1rem;
+    }
+
+    .illustration {
+      display: flex;
+      gap: 20px;
+    }
+
+    .illustration .person {
+      text-align: center;
+      font-size: 1.2rem;
+      color: #3b5998;
+    }
+
+    .illustration .person img {
+      width: 150px;
+      height: auto;
+    }
+
+    /* Dropdown styling for the new form section */
+    .dropdown-container {
+      display: flex;
+      gap: 20px;
+      flex-direction: column;
+      align-items: center;
+      margin: 20px 0;
+    }
+
+    .dropdown-container label {
+      font-size: 16px;
+      margin-bottom: 5px;
+    }
+
+    .dropdown-select {
+      margin: 10px 0;
+      padding: 8px;
+      width: 250px;
+      font-size: 16px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    /* Footer styles */
+    .footer {
+      background-color: #333;
+      color: #fff;
+      width: 100%;
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    .footer a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 15px;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="logo"><a href="index.html">JobBoard</a></div>
+    <ul class="nav-links">
+      <li><a href="home.html">Home</a></li>
+      <li class="dropdown">
+        <a href="jobs.html">Jobs</a>
+        <ul class="dropdown-menu">
+          <li><a href="jobs.html#full-time">Full-Time Jobs</a></li>
+          <li><a href="jobs.html#part-time">Part-Time Jobs</a></li>
+          <li><a href="jobs.html#internships">Internships</a></li>
+        </ul>
+      </li>
+      <li class="dropdown">
+        <a href="profile.html">Profile</a>
+        <ul class="dropdown-menu">
+          <li><a href="profile.html#view">View Profile</a></li>
+          <li><a href="profile.html#edit">Edit Profile</a></li>
+          <li><a href="profile.html#settings">Settings</a></li>
+        </ul>
+      </li>
+      <li><a href="post-job.html">Post a Job</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+    <div class="nav-buttons">
+      <a href="login.html" class="btn-login">Login</a>
+      <a href="register.html" class="btn-register">Register</a>
+    </div>
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+  </nav>
+
+  <!-- Script for mobile menu toggle -->
+  <script>
+    function toggleMenu() {
+      const navLinks = document.querySelector('.nav-links');
+      navLinks.classList.toggle('active');
+    }
+  </script>
+
+  <!-- Main content -->
+  <div class="container">
+    <div class="content">
+      <h1>Find Your <span>Vacancy!</span></h1>
+      <p>Ut cum adhuc diceret. Nec saepe appareat recteque te, cum dicat nominavi argumentum ad. Cum eu augue malorum gubergren, pro apeirian conclusionemque no.</p>
+      <button>Learn more</button>
+    </div>
+    <div class="illustration">
+      <div class="person">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJyyksgMYf1yBEsz_HqDsqlfxCvt8GSxzMYA&s" alt="Person holding 'Hire Me' sign">
+        <p>HIRE ME!</p>
+      </div>
+      <div class="person">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRun483285YZXPKsH-my6y9cFaENGSiP_sskw&s" alt="Person holding 'Hire Me' sign">
+        <p>HIRE ME!</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dropdown Section for state, city, and areas -->
+  <div class="dropdown-container">
+    <div>
+      <label for="state">Select State</label>
+      <select id="state" class="dropdown-select">
+        <option value="state1">State 1</option>
+        <option value="state2">State 2</option>
+        <option value="state3">State 3</option>
+        <option value="state4">State 4</option>
+      </select>
+    </div>
+    <div>
+      <label for="city">Select City/District</label>
+      <select id="city" class="dropdown-select">
+        <option value="city1">City 1</option>
+        <option value="city2">City 2</option>
+        <option value="city3">City 3</option>
+        <option value="city4">City 4</option>
+      </select>
+    </div>
+    <div>
+      <label for="interested-area">Select Interested Area</label>
+      <select id="interested-area" class="dropdown-select">
+        <option value="area1">Area 1</option>
+        <option value="area2">Area 2</option>
+        <option value="area3">Area 3</option>
+        <option value="area4">Area 4</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Footer Section -->
+  <footer class="footer">
+    <p>&copy; 2024 JobBoard. All Rights Reserved.</p>
+    <p>
+      <a href="terms.html">Terms & Conditions</a> | 
+      <a href="privacy.html">Privacy Policy</a>
+    </p>
+  </footer>
+
+</body>
+</html>
